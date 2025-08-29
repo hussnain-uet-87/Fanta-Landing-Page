@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import bottle from "../assets/fanta.png";
@@ -6,18 +6,63 @@ import bottle from "../assets/fanta.png";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Landing() {
-  
-    
+  const containerRef = useRef(null);
+  const imageRef = useRef(null);
 
+useEffect(() => {
+  let ctx = gsap.context(() => {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "+=400%",
+        markers: true,
+        scrub: true,
+        pin: imageRef.current,
+      },
+    });
+
+    // Home (initial position) → About
+    tl.to(imageRef.current, {
+      x: "30vw",
+      duration: 1,
+      rotate: 25,
+      scale: 1.1,
+    });
+
+    // About → Flavors
+    tl.to(imageRef.current, {
+      x: "-25vw",
+      duration: 1,
+      rotate: -25,
+      scale: 0.8,
+    });
+
+    // Flavors → Contact
+    tl.to(imageRef.current, {
+      x: "-65vw",
+      duration: 1,
+      rotate: 0,
+      scale: 0.7,
+    });
+  });
+
+  return () => ctx.revert(); // cleanup
+}, []);
   return (
-    <div className="container relative h-[400vh] bg-white text-purple-900 font-poppins">
-      {/* 🍊 Pinned Fanta Bottle */}
-      <img
-        
-        src={bottle}
-        alt="Fanta Bottle"
-        className="w-[500px] absolute top-[150px] right-[50px] drop-shadow-2xl rotate-10"
-      />
+    <div
+      ref={containerRef}
+      className="relative h-[400vh] bg-white text-purple-900 font-poppins"
+    >
+      {/* Sticky Image */}
+      <div className="sticky top-0 h-screen flex items-center justify-center pointer-events-none">
+        <img
+          ref={imageRef}
+          src={bottle}
+          alt="Fanta Bottle"
+          className="w-[500px] drop-shadow-2xl"
+        />
+      </div>
 
       {/* Page 1 - Home */}
       <section className="h-screen flex flex-col justify-center items-start pl-20 bg-orange-400 text-white">
@@ -46,10 +91,7 @@ export default function Landing() {
           Our Flavors
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div
-            
-            className="bg-orange-200 p-6 rounded-2xl text-center shadow-md relative"
-          >
+          <div className="bg-orange-200 p-6 rounded-2xl text-center shadow-md relative">
             <h3 className="text-xl font-bold">Orange</h3>
             <div className="flavor-slot w-24 h-24 mx-auto mt-4  rounded-lg"></div>
           </div>
