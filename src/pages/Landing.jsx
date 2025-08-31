@@ -15,62 +15,83 @@ useEffect(() => {
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
-        end: "+=400%",
-        markers: true,
+        end: "+=410%",
         scrub: true,
         pin: imageRef.current,
       },
     });
-
-    // Home (initial position) → About
+    // From initial position to Home
     tl.to(imageRef.current, {
-      x: "30vw",
+      x: "28vw",
       duration: 1,
       rotate: 25,
       scale: 1.1,
     });
-
-    // About → Flavors
+    // Home -> About
     tl.to(imageRef.current, {
-      x: "-25vw",
+      x: "-26vw",
       duration: 1,
       rotate: -25,
-      scale: 0.8,
+      scale: 1.2,
     });
-
-    // Flavors → Contact
+    // about -> flavors 
     tl.to(imageRef.current, {
-      x: "-65vw",
+      x: "-25vw",
+      y:"10vh",
       duration: 1,
       rotate: 0,
-      scale: 0.7,
+      scale: 0.4,
     });
+    //flavors -> contact
+    tl.to(imageRef.current, {
+      x: "22vw",
+      y:"0vh",
+      duration: 1,
+      rotate: 25,
+      scale: 1.2,
+    });
+
+    
   });
 
   return () => ctx.revert(); // cleanup
 }, []);
   return (
+    <>
+      <div className="flex xl:hidden flex-col font-bold items-center justify-center px-20 py-8  rounded-xl">
+        <h1 className="text-xl mb-2 mt-20 text-center text-red-700">NOTE</h1>
+        <p>Open this website on Desktop Screen</p>
+      </div>
     <div
       ref={containerRef}
-      className="relative h-[400vh] bg-white text-purple-900 font-poppins"
+      className="relative hidden xl:block h-[400vh] bg-orange-100 text-purple-900 font-poppins"
     >
+      <div className="absolute  top-12 left-30 font-bold">
+        <h1 className="text-6xl">“Unleash the Fizz. Taste the Fun.”</h1>
+        <p className="ml-10">Dive into the world of Fanta — a burst of fruity flavor, refreshing fizz, and endless energy that keeps the vibe alive.</p>
+      </div>
+      <div className="absolute top-135 bg-amber-600 w-full py-2 text-center text-white tracking-wider font-bold">
+        <p>We’re not just a drink — we’re a vibe. A refreshing escape into bold flavors, fun times, and vibrant energy.</p>
+      </div>
+        <button className="absolute top-145 bg-purple-900 px-8 py-2 ml-135 mt-5 font-bold text-white rounded-lg">Discover More</button>
       {/* Sticky Image */}
-      <div className="sticky top-0 h-screen flex items-center justify-center pointer-events-none">
+      <div className="sticky flex z-10 top-0 h-screen  items-center justify-center pointer-events-none">
         <img
           ref={imageRef}
           src={bottle}
           alt="Fanta Bottle"
-          className="w-[500px] drop-shadow-2xl"
+          className="w-[500px]  drop-shadow-2xl"
         />
       </div>
 
       {/* Page 1 - Home */}
-      <section className="h-screen flex flex-col justify-center items-start pl-20 bg-orange-400 text-white">
+      <section className="h-screen flex flex-col justify-center items-start pl-20 bg-[#eea12d] text-white">
         <h1 className="text-5xl font-bold mb-4">Welcome to Fanta World 🍊</h1>
         <p className="text-lg max-w-lg">
           Refresh your moments with fruity fun. Scroll to explore our story,
           flavors & more!
         </p>
+        <button className="mt-4 px-8 py-2 rounded-lg text-white bg-purple-900">Taste Now</button>
       </section>
 
       {/* Page 2 - About */}
@@ -93,7 +114,7 @@ useEffect(() => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="bg-orange-200 p-6 rounded-2xl text-center shadow-md relative">
             <h3 className="text-xl font-bold">Orange</h3>
-            <div className="flavor-slot w-24 h-24 mx-auto mt-4  rounded-lg"></div>
+            <div className="flavor-slot w-34 h-34 mx-auto mt-4  rounded-lg"></div>
           </div>
           <div className="bg-purple-300 p-6 rounded-2xl text-center shadow-md">
             <h3 className="text-xl font-bold">Grape</h3>
@@ -136,5 +157,6 @@ useEffect(() => {
         </div>
       </section>
     </div>
+    </>
   );
 }
