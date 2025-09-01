@@ -72,4 +72,6 @@ This project is licensed under the **MIT License** – feel free to use and modi
 
 ---
 
-Would you like me to also make a **short professional GitHub repo tagline (one-liner under repo name)** for this, so your project looks polished when recruiters land on it?
+## Author
+
+Hafiz Husnain Arif - (github : hussnain-uet-87)
