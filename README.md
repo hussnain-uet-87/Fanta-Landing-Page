@@ -1,12 +1,75 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🍊 Fanta Landing Page
 
-Currently, two official plugins are available:
+An interactive landing page built with **React** and **TailwindCSS**, featuring smooth **GSAP ScrollTrigger animations**. This project focuses on advanced front-end animation techniques to create an engaging and dynamic scrolling experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **GSAP ScrollTrigger** for scroll-based animations
+* Responsive design with **TailwindCSS**
+* Modern UI inspired by the Fanta brand
+* Smooth transitions and creative interactions
+* Built with React for component-based structure
+
+---
+
+## 🛠️ Tech Stack
+
+* **React.js**
+* **TailwindCSS**
+* **GSAP (ScrollTrigger plugin)**
+* **Vite** (for fast development and bundling)
+* **Vercel Deployment** (for fast and free access)
+
+---
+
+## 📂 Project Setup
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/hussnain-uet-87/fanta-landing-page.git
+cd fanta-landing-page
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the project
+
+```bash
+npm run dev
+```
+
+### 4. Build for production
+
+```bash
+npm run build
+```
+
+---
+
+## 📖 Learning Purpose
+
+This project was created **to practice GSAP ScrollTrigger animations** in a React environment. It is not a commercial website, but a showcase of animation and UI skills.
+
+---
+
+## 🌐 Live Demo
+
+[🔗 View Live Project](https://fanta-gsap-gold.vercel.app/)
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** – feel free to use and modify for learning purposes.
+
+---
+
+Would you like me to also make a **short professional GitHub repo tagline (one-liner under repo name)** for this, so your project looks polished when recruiters land on it?
